@@ -1,0 +1,67 @@
+https://dev.to/fyapy/repository-pattern-with-typescript-and-nodejs-25da
+interface RectangleInterface {
+  width: number;
+  height: number;
+}
+
+interface CircleInterface {
+  radius: number;
+}
+
+interface Shape {
+  area(): number;
+}
+
+interface Serializable {
+  serialize(): string;
+}
+
+class Rectangle implements RectangleInterface, Shape {
+  width: number;
+  height: number;
+
+  constructor(weight: number, height: number) {
+      this.width = weight;
+      this.height = height;
+  }
+
+  public area() {
+    return this.width * this.height;
+  }
+}
+
+class Circle implements CircleInterface, Shape {
+  radius: number;
+
+  constructor(raduis: number) {
+    this.radius = raduis;
+  }
+
+  area() {
+    return this.radius * this.radius * Math.PI;
+  }
+}
+
+function getArea(shapes: Shape[]) {
+  return shapes.reduce((previous, current) => previous + current.area(), 0);
+}
+
+class RectangleDTO implements RectangleInterface, Serializable {
+  width: number;
+  height: number;
+
+  public serialize() {
+    return JSON.stringify(this);
+  }
+}
+
+class CircleDTO implements CircleInterface, Serializable {
+  radius: number;
+
+  serialize() {
+    return JSON.stringify(this.radius);
+  }
+}
+
+console.log(new CircleDTO().serialize());
+console.log("hello world");

@@ -12,7 +12,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/express": "^4.17.13",
+    "@types/mongoose": "^5.11.97",
     "@types/node": "^17.0.23",
-    "typescript": "^4.6.3"
+    "express": "^4.17.3",
+    "mongoose": "^6.2.10",
+    "typescript": "^4.6.3",
+    "winston": "^3.7.2"
+  },
+  "devDependencies": {
+    "@types/winston": "^2.4.4"
   }
 }

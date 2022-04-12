@@ -74,5 +74,6 @@ export type ResolversParentTypes = ResolversObject<{
   UserProfilePayload:
     | ResolversTypes["UserProfileSuccess"]
     | ResolversTypes["UserNotExists"];
-  UserProfile: ResolversTypes["UserProfileInput"];
+  UserProfile: ResolversTypes["UserProfile"];
 }>;
+

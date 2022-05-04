@@ -22,6 +22,11 @@ export type DrafeInvoice = {
   lineItems: Array<LineItem>;
 };
 
+export type StatusLevelCreateManyInput = {
+  id?: number
+  name: string
+};
+
 export type Invoice = FinalInvoice | DrafeInvoice;
 
 export const isFinalInvoice = (invoice: Invoice): invoice is FinalInvoice => {
@@ -44,6 +49,21 @@ const another_new_invoice: Invoice = {
   invoiceNumber: "1234567",
   customerId: 719,
   lineItems: [],
+};
+
+const status: { [key: string]: StatusLevelCreateManyInput } = {
+  revoked: {
+    id: -1,
+    name: 'Revoked',
+  },
+  invited: {
+    id: 0,
+    name: 'Invited',
+  },
+  active: {
+    id: 1,
+    name: 'Active',
+  },
 };
 
 // false
